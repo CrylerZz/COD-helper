@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>COD Helper</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+        .scrollbar-custom::-webkit-scrollbar {
+            width: 2px;
+        }
+
+/* Track */
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: white;
+}
+
+/* Handle on hover */
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background: blue;
+}
+    </style>
+</head>
+
+<body class="bg-gray-900 min-h-screen scroll-smooth">
+    <header class="bg-white w-full sticky top-0 z-50 h-20 flex items-center justify-between">
+        <nav class="mx-auto flex max-w-screen-2xl items-center justify-between w-full" aria-label="Global">
+            <div class="flex lg:flex-1">
+                <div class="w-12 sm:w-16 h-12 sm:h-16 flex items-center justify-center relative group">
+                    <img class="h-8 sm:h-10 w-8 sm:w-10 rounded-lg" src="./img/me.jpeg" alt="">
+                    <a href="https://discord.com/users/244843199674318849" target="_blank"
+                        class="absolute h-8 left-full bg-gray-800 text-white rounded flex items-center justify-center px-2 text-xs hidden group-hover:flex">@Crylerz</a>
+                </div>
+            </div>
+            <div class="flex lg:hidden">
+                <button type="button"
+                    class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden lg:flex lg:gap-x-12">
+                <a href="#talents" class="text-sm font-semibold leading-6 text-gray-900">Talents</a>
+                <a href="#pairing" class="text-sm font-semibold leading-6 text-gray-900">Heroes Pairing</a>
+                <a href="#tips" class="text-sm font-semibold leading-6 text-gray-900">Tips</a>
+            </div>
+
+        </nav>
+        <!-- Mobile menu, show/hide based on menu open state. -->
+        <div class="lg:hidden" role="dialog" aria-modal="true">
+            <!-- Background backdrop, show/hide based on slide-over state. -->
+            <div class="fixed inset-0 z-10"></div>
+            <div
+                class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <div class="flex items-center justify-between">
+                    <a href="#" class="-m-1.5 p-1.5">
+                        <span class="sr-only">Your Company</span>
+                        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                            alt="">
+                    </a>
+                    <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                        <span class="sr-only">Close menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="mt-6 flow-root">
+                    <div class="-my-6 divide-y divide-gray-500/10">
+                        <div class="space-y-2 py-6">
+                            <div class="-mx-3">
+                                <button type="button"
+                                    class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                    aria-controls="disclosure-1" aria-expanded="false">
+                                    Product
+                                    <!--
+                        Expand/collapse icon, toggle classes based on menu open state.
+      
+                        Open: "rotate-180", Closed: ""
+                      -->
+                                    <svg class="h-5 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor"
+                                        aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <!-- 'Product' sub-menu, show/hide based on menu state. -->
+                                <div class="mt-2 space-y-2" id="disclosure-1">
+                                    <a href="#"
+                                        class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Analytics</a>
+                                    <a href="#"
+                                        class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Engagement</a>
+                                    <a href="#"
+                                        class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Security</a>
+                                    <a href="#"
+                                        class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Integrations</a>
+                                    <a href="#"
+                                        class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Automations</a>
+                                    <a href="#"
+                                        class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Watch
+                                        demo</a>
+                                    <a href="#"
+                                        class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact
+                                        sales</a>
+                                </div>
+                            </div>
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+                        </div>
+                        <div class="py-6">
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
+                                in</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Section Talents -->
+    <section id="talents" class="flex items-center justify-center flex-col container mx-auto max-w-screen-2xl space-y-6 min-h-[calc(100vh-5rem)]">
+        <div class="flex items-center justify-between w-full">
+            <h1 class="text-3xl">Talents</h1>
+            <!-- <div>
+                <nav aria-label="Tabs" class="flex border-b border-gray-100 text-sm font-semibold leading-6">
+                    <a href="" class="-mb-px border-b border-current p-4 text-cyan-500">
+                        PVE
+                    </a>
+
+                    <a href="" class="-mb-px border-b border-transparent p-4 hover:text-cyan-500">
+                        PVP
+                    </a>
+                </nav>
+            </div> -->
+        </div>
+        <div class="flex gap-6">
+            <div class="max-w-[200px] relative">
+                <div class="flex justify-center flex-wrap gap-6 mx-auto max-w-sm h-[36rem] overflow-x-hidden overflow-scroll scrollbar-custom">
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px]">
+                        <img class="mx-auto" src="img/alistair.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/alwyn.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40 hover:opacity-100 hover:grayscale-0">
+                        <img class="mx-auto" src="img/atheus.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/bakhar.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/bakshi.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/chakcha.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/elliana.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/emrys.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/garwood.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/gwanwyn.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/hosk.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/indis.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/kella.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/kinnara.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/kregg.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/liliya.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/madeline.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/nico.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/nika.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/ordo.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/pan.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/velyn.png" alt="">
+                    </div>
+                    <div class="bg-[url('img/bg-role.png')] w-[68px] h-[89px] grayscale opacity-40">
+                        <img class="mx-auto" src="img/waldyr.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1">
+                <div class=" relative rounded-xl overflow-hidden">
+                    <img class="" src="img/gwanwyn-talent-2.png" alt="">
+                    <span class="absolute bottom-0 left-0 text-black bg-white p-2 rounded-tr-xl">Gwanwyn Full Precision Build</span>
+
+                </div>
+            </div>
+            <div class="relative space-y-2">
+                <div class="relative flex h-14 w-14 items-center justify-center rounded-lg bg-[#8b723d] group hover:bg-[#8b723d]">
+                    <img class="h-8 sm:h-10 w-8 sm:w-10" src="img/profile.png" alt="">
+                    <div class="absolute h-8 right-16 bg-gray-800 text-white rounded flex items-center justify-center px-2 text-xs hidden group-hover:flex">Gathering</div>
+                </div>
+                <div class="relative flex h-14 w-14 items-center justify-center rounded-lg bg-gray-700 group  hover:bg-[#8b723d]">
+                    <img class="h-8 sm:h-10 w-8 sm:w-10" src="img/profile.png" alt="">
+                    <div class="absolute h-8 right-16 bg-gray-800 text-white rounded flex items-center justify-center px-2 text-xs hidden group-hover:flex">PVP</div>
+                </div>
+            </div>
+            
+
+        </div>
+
+    </section>
+    <!-- Section Heroes Pairing -->
+    <section id="pairing" class="container mx-auto max-w-screen-xl py-10 space-y-16">
+        <div class="flex items-center justify-between">
+            <h1 class="text-3xl">Heroes Pairing</h1>
+            <div>
+                <nav aria-label="Tabs" class="flex border-b border-gray-100 text-sm font-semibold leading-6">
+                    <a href="" class="-mb-px border-b border-current p-4 text-cyan-500">
+                        PVE
+                    </a>
+
+                    <a href="" class="-mb-px border-b border-transparent p-4 hover:text-cyan-500">
+                        PVP
+                    </a>
+                </nav>
+            </div>
+        </div>
+        <div class="grid grid-cols-5 justify-items-center gap-20">
+            <div class="relative">
+                <div class=" z-10 relative bg-[url('img/bg-role.png')] w-[68px] h-[89px]">
+                    <img class="mx-auto" src="img/alistair.png" alt="">
+                </div>
+                <div class="absolute top-8 left-8 bg-[url('img/bg-role.png')] w-[68px] h-[89px] hover:z-10">
+                    <img class="mx-auto" src="img/atheus.png" alt="">
+                </div>
+            </div>
+            <div class="relative">
+                <div class=" z-10 relative bg-[url('img/bg-role.png')] w-[68px] h-[89px]">
+                    <img class="mx-auto" src="img/alistair.png" alt="">
+                </div>
+                <div class="absolute top-8 left-8 bg-[url('img/bg-role.png')] w-[68px] h-[89px] hover:z-10">
+                    <img class="mx-auto" src="img/atheus.png" alt="">
+                </div>
+            </div>
+            <div class="relative">
+                <div class=" z-10 relative bg-[url('img/bg-role.png')] w-[68px] h-[89px]">
+                    <img class="mx-auto" src="img/alistair.png" alt="">
+                </div>
+                <div class="absolute top-8 left-8 bg-[url('img/bg-role.png')] w-[68px] h-[89px] hover:z-10">
+                    <img class="mx-auto" src="img/atheus.png" alt="">
+                </div>
+            </div>
+            <div class="relative">
+                <div class=" z-10 relative bg-[url('img/bg-role.png')] w-[68px] h-[89px]">
+                    <img class="mx-auto" src="img/alistair.png" alt="">
+                </div>
+                <div class="absolute top-8 left-8 bg-[url('img/bg-role.png')] w-[68px] h-[89px] hover:z-10">
+                    <img class="mx-auto" src="img/atheus.png" alt="">
+                </div>
+            </div>
+            <div class="relative">
+                <div class=" z-10 relative bg-[url('img/bg-role.png')] w-[68px] h-[89px]">
+                    <img class="mx-auto" src="img/alistair.png" alt="">
+                </div>
+                <div class="absolute top-8 left-8 bg-[url('img/bg-role.png')] w-[68px] h-[89px] hover:z-10">
+                    <img class="mx-auto" src="img/atheus.png" alt="">
+                </div>
+            </div>
+            <div class="relative">
+                <div class=" z-10 relative bg-[url('img/bg-role.png')] w-[68px] h-[89px]">
+                    <img class="mx-auto" src="img/alistair.png" alt="">
+                </div>
+                <div class="absolute top-8 left-8 bg-[url('img/bg-role.png')] w-[68px] h-[89px] hover:z-10">
+                    <img class="mx-auto" src="img/atheus.png" alt="">
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- Section Tips -->
+    <section id="tips" class="container mx-auto max-w-screen-xl py-10 space-y-16">
+        <div class="flex items-center justify-between">
+            <h1 class="text-3xl">Tips</h1>
+        </div>
+        <div class="grid grid-cols-2 justify-items-center gap-10 w-full">
+            <details class="group rounded-lg bg-gray-50 p-6 w-full [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
+                    <h2 class="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing?</h2>
+
+                    <span class="relative h-5 w-5 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </span>
+                </summary>
+
+                <p class="mt-4 leading-relaxed text-gray-700">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis
+                    molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt
+                    voluptate dicta quo officiis explicabo consequuntur distinctio corporis
+                    earum similique!
+                </p>
+            </details>
+            <details class="group rounded-lg bg-gray-50 p-6 w-full [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
+                    <h2 class="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing?</h2>
+
+                    <span class="relative h-5 w-5 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </span>
+                </summary>
+
+                <p class="mt-4 leading-relaxed text-gray-700">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis
+                    molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt
+                    voluptate dicta quo officiis explicabo consequuntur distinctio corporis
+                    earum similique!
+                </p>
+            </details>
+        </div>
+
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
+    <script>
+    </script>
+</body>
+
+</html>
